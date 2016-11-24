@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private final String ACTIVITY_NAME = "MainActivity";
@@ -18,6 +20,44 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button car = (Button) findViewById(R.id.carButton);
+        car.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Car.class);
+                startActivity(intent);
+            }
+        });
+
+        Button kitchen = (Button) findViewById(R.id.kitchenButton);
+        kitchen.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Kitchen.class);
+                startActivity(intent);
+            }
+        });
+
+        Button living = (Button) findViewById(R.id.livingRoomButton);
+        living.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,LivingRoom.class);
+                startActivity(intent);
+            }
+        });
+
+        Button home = (Button) findViewById(R.id.homeButton);
+        home.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Home.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

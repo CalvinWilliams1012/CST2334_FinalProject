@@ -31,7 +31,7 @@
         android:id="@+id/addMenu"/>
     <item android:title="Remove"
         android:id="@+id/removeMenu"/>
-    <item android:title="Exit"
-        android:id="@+id/exitMenu"/>
+    <item android:title="Back"
+        android:id="@+id/backMenu"/>
 
 </menu>

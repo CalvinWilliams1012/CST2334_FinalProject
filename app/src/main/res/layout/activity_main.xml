@@ -22,4 +22,45 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="@string/title_activity_kitchen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/kitchenButton"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/carButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:text="@string/title_activity_living_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/livingRoomButton"
+            android:layout_below="@+id/kitchenButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp" />
+
+        <Button
+            android:text="@string/title_activity_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeButton"
+            android:layout_below="@+id/livingRoomButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp" />
+
+        <Button
+            android:text="@string/title_activity_car"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/carButton"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
 </android.support.design.widget.CoordinatorLayout>

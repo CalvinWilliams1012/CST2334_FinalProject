@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,23 +29,6 @@ public class Kitchen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /* Sets the text of the current activity text*/
-        kitchenText = (TextView) findViewById(R.id.customKitchenDialog);
-        Resources res = getResources();
-        String text = String.format(res.getString(R.string.Current),ACTIVITY_NAME);
-        kitchenText.setText(text);
-
-        /* Sets the okay button and whenever it is pressed the current activity dialog is dismissed*/
-        okay =(Button) findViewById(R.id.okButtonKitchen);
-        okay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                kitchenText.setVisibility(View.INVISIBLE);
-                kitchenView = (ImageView) findViewById(R.id.kitchenImg);
-                kitchenView.setVisibility(View.INVISIBLE);
-                okay.setVisibility(View.INVISIBLE);
-            }
-        });
     }
 
 
@@ -69,14 +53,22 @@ public class Kitchen extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.kitchenMenu:
-                Log.i(ACTIVITY_NAME," Kitchen Selected");
-                intent = new Intent(Kitchen.this,Kitchen.class);
-                startActivity(intent);
 
-                /*Sets the current activity dialog to show*/
-                okay.setVisibility(View.VISIBLE);
-                kitchenText.setVisibility(View.VISIBLE);
-                kitchenView.setVisibility(View.VISIBLE);
+                android.support.v7.app.AlertDialog.Builder builder2 = new android.support.v7.app.AlertDialog.Builder(Kitchen.this);
+                builder2.setTitle("Kitchen Interface"); //Set message to This is the current interface that you are in.
+                LayoutInflater inflater = this.getLayoutInflater();
+                View view = inflater.inflate(R.layout.kitchen_dialog, null);
+                builder2.setView(view);
+                final TextView dialogText = (TextView) view.findViewById(R.id.customKitchenDialog);
+
+                builder2.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {}
+                });
+                android.support.v7.app.AlertDialog build = builder2.create();
+                build.show();
+
+
+                Log.i(ACTIVITY_NAME," Kitchen Selected");
                 break;
             case R.id.livingMenu:
                 Log.i(ACTIVITY_NAME," Living Room Selected");
@@ -88,16 +80,16 @@ public class Kitchen extends AppCompatActivity {
                 intent = new Intent(Kitchen.this,Home.class);
                 startActivity(intent);
                 break;
-            case R.id.exitMenu:
-                Log.i(ACTIVITY_NAME," Exit Selected");
-                exitButton();
+            case R.id.backMenu:
+                Log.i(ACTIVITY_NAME," Back Selected");
+                backButton();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void exitButton(){
+    public void backButton(){
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(Kitchen.this);
         builder.setTitle("Do you want to go back?");
 

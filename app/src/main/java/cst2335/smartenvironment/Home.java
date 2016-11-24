@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,25 +28,6 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-        /* Sets the text of the current activity text*/
-        homeText = (TextView) findViewById(R.id.customHomeDialog);
-        Resources res = getResources();
-        String text = String.format(res.getString(R.string.Current),ACTIVITY_NAME);
-        homeText.setText(text);
-
-        /* Sets the okay button and whenever it is pressed the current activity dialog is dismissed*/
-        okay =(Button) findViewById(R.id.okButtonHome);
-        okay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                homeText.setVisibility(View.INVISIBLE);
-                homeView = (ImageView) findViewById(R.id.homeImg);
-                homeView.setVisibility(View.INVISIBLE);
-                okay.setVisibility(View.INVISIBLE);
-            }
-        });
 
     }
 
@@ -81,25 +63,36 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.homeMenu:
-                Log.i(ACTIVITY_NAME," Home Selected");
-                intent = new Intent(Home.this,Home.class);
-                startActivity(intent);
 
-                /*Sets the current activity dialog to show*/
-                okay.setVisibility(View.VISIBLE);
-                homeText.setVisibility(View.VISIBLE);
-                homeView.setVisibility(View.VISIBLE);
+
+                android.support.v7.app.AlertDialog.Builder builder2 = new android.support.v7.app.AlertDialog.Builder(Home.this);
+                builder2.setTitle("Home Interface"); //Set message to This is the current interface that you are in.
+                LayoutInflater inflater = this.getLayoutInflater();
+                View view = inflater.inflate(R.layout.home_dialog, null);
+                builder2.setView(view);
+                final TextView dialogText = (TextView) view.findViewById(R.id.customHomeDialog);
+
+                builder2.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {}
+                });
+                android.support.v7.app.AlertDialog build = builder2.create();
+                build.show();
+
+
+
+
+                Log.i(ACTIVITY_NAME," Home Selected");
                 break;
-            case R.id.exitMenu:
-                Log.i(ACTIVITY_NAME," Exit Selected");
-                exitButton();
+            case R.id.backMenu:
+                Log.i(ACTIVITY_NAME," Back Selected");
+                backButton();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void exitButton(){
+    public void backButton(){
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(Home.this);
         builder.setTitle("Do you want to go back?");
 

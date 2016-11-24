@@ -29,24 +29,6 @@ public class Car extends AppCompatActivity {
         setContentView(R.layout.activity_car);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        /* Sets the text of the current activity text*/
-        carText = (TextView) findViewById(R.id.customCarDialog);
-        Resources res = getResources();
-        String text = String.format(res.getString(R.string.Current),ACTIVITY_NAME);
-        carText.setText(text);
-
-        /* Sets the okay button and whenever it is pressed the current activity dialog is dismissed*/
-        okay =(Button) findViewById(R.id.okButtonCar);
-        okay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                carText.setVisibility(View.INVISIBLE);
-                carView = (ImageView) findViewById(R.id.automobImg);
-                carView.setVisibility(View.INVISIBLE);
-                okay.setVisibility(View.INVISIBLE);
-            }
-        });
     }
 
     @Override
@@ -65,14 +47,19 @@ public class Car extends AppCompatActivity {
         Intent intent;
         switch (id){
             case R.id.carMenu:
-                Log.i(ACTIVITY_NAME," Car Selected");
-                intent = new Intent(Car.this,Car.class);
-                startActivity(intent);
+                android.support.v7.app.AlertDialog.Builder builder2 = new android.support.v7.app.AlertDialog.Builder(Car.this);
+                builder2.setTitle("Car Interface"); //Set message to This is the current interface that you are in.
+                LayoutInflater inflater = this.getLayoutInflater();
+                View view = inflater.inflate(R.layout.car_dialog, null);
+                builder2.setView(view);
+                final TextView dialogText = (TextView) view.findViewById(R.id.customCarDialog);
 
-                /*Sets the current activity dialog to show*/
-                okay.setVisibility(View.VISIBLE);
-                carText.setVisibility(View.VISIBLE);
-                carView.setVisibility(View.VISIBLE);
+                builder2.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {}
+                });
+                android.support.v7.app.AlertDialog build = builder2.create();
+                build.show();
+                Log.i(ACTIVITY_NAME," Car Selected");
                 break;
             case R.id.kitchenMenu:
                 Log.i(ACTIVITY_NAME," Kitchen Selected");
@@ -89,16 +76,16 @@ public class Car extends AppCompatActivity {
                 intent = new Intent(Car.this,Home.class);
                 startActivity(intent);
                 break;
-            case R.id.exitMenu:
-                Log.i(ACTIVITY_NAME," Exit Selected");
-                exitButton();
+            case R.id.backMenu:
+                Log.i(ACTIVITY_NAME," Back Selected");
+                backButton();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void exitButton(){
+    public void backButton(){
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(Car.this);
         builder.setTitle("Do you want to go back?");
 
