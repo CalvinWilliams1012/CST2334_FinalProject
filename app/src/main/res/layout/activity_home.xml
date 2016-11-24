@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="cst2335.smartenvironment.cst2335.smartenvironment.Home">
+    tools:context="cst2335.smartenvironment.Home">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -18,11 +18,50 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
+    </android.support.design.widget.AppBarLayout>
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/homeImg"
+            android:src="@drawable/house"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:scaleType="center"
+            android:background="#cc0000"
+            android:contentDescription="@string/app_name"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            />
+
+        <TextView
+            android:id="@+id/customHomeDialog"
+            android:text="@string/Current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:layout_above="@+id/homeImg"
+            android:layout_centerInParent="false" />
+
+        <Button
+            android:text="@string/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/okButtonHome"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_alignBaseline="@+id/customHomeDialog"
+            android:layout_alignBottom="@+id/customHomeDialog"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+
 
 </android.support.design.widget.CoordinatorLayout>

@@ -5,4 +5,8 @@
     <string name="title_activity_home">Home</string>
     <string name="title_activity_living_room">LivingRoom</string>
     <string name="title_activity_kitchen">Kitchen</string>
+    <string name="ok">OKAY</string>
+    <string name="Current">You are currently in the %1$s Activity</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
