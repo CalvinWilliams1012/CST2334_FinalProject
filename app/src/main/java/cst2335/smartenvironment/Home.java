@@ -32,7 +32,6 @@ public class Home extends AppCompatActivity {
     private final String ACTIVITY_NAME = "Home";
     ListView mainList;
     ArrayList<String> values;
-    ContentValues cValues;
     HomeDatabaseHelper helper;
     SQLiteDatabase db;
 
@@ -50,43 +49,47 @@ public class Home extends AppCompatActivity {
         helper = new HomeDatabaseHelper(this);
         db = helper.getWritableDatabase();
 
-        //db.execSQL("INSERT INTO " + helper.DATABASE_NAME + " (" + helper.NAME + ", " + helper.ENABLED + ") VALUES('garage',1)");
-
         ItemAdapter myAdapter = new ItemAdapter(this);
-
 
         Cursor qry = db.rawQuery("SELECT * FROM " + helper.DATABASE_NAME,new String[]{});
 
         int dbName = qry.getColumnIndex(helper.NAME);
         int dbEnabled = qry.getColumnIndex(helper.ENABLED);
-
-        if(qry.moveToFirst()){
-            qry.moveToFirst();
-            if(dbName >= 0 && dbEnabled >= 0 && !qry.isClosed() && qry.getCount()!=0){
-                while(!qry.isAfterLast()){
-                    if(qry.getInt(dbEnabled)!=0){
+        Log.i(ACTIVITY_NAME,"Col count: " + qry.getColumnCount());
+        if(dbName >= 0 && dbEnabled >= 0 && !qry.isClosed() && qry.getCount()!=0){
+            try {
+                while (qry.moveToNext()) {
+                    if (qry.getInt(dbEnabled) != 0) {
                         values.add(qry.getString(dbName));
-                        qry.moveToNext();
                     }
                 }
+            }finally {
+                qry.close();
             }
         }
-        qry.close();
+
+
         mainList.setAdapter(myAdapter);
 
         mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
+                if(values.get(0).equals("Garage") && position==0){
+                    Log.d(ACTIVITY_NAME,"Garage clicked");
                     Intent intent = new Intent(Home.this,Garage.class);
                     startActivity(intent);
-                }else if(position==1){
-
-                }else if(position==2){
-
+                }else if(values.get(1).equals("Temperature")&& position==1){
+                    Log.d(ACTIVITY_NAME,"Temp clicked");
+                    Intent intent = new Intent(Home.this,Temperature.class);
+                    startActivity(intent);
+                }else if(values.get(2).equals("Weather") && position==2){
+                    Log.d(ACTIVITY_NAME,"Weather clicked");
+                    Intent intent = new Intent(Home.this,Weather.class);
+                    startActivity(intent);
                 }
             }
         });
+
     }
 
 
@@ -152,6 +155,16 @@ public class Home extends AppCompatActivity {
                     }
                 });
                 about.show();
+                break;
+            case R.id.addMenu:
+                Log.i(ACTIVITY_NAME," Add Selected");
+                intent = new Intent(Home.this,Add_Items.class);
+                startActivity(intent);
+                break;
+            case R.id.removeMenu:
+                Log.i(ACTIVITY_NAME,"Remove Selected");
+                intent = new Intent(Home.this,Remove_Items.class);
+                startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -210,10 +223,18 @@ public class Home extends AppCompatActivity {
                 result = inflater.inflate(R.layout.temperature_list_item, null);
                 message = (TextView)result.findViewById(R.id.itemTView);
                 message.setText(getItem(position));
-            }else if(val.equals("Weather")){
+            }else if(val.equals("Weather")) {
                 result = inflater.inflate(R.layout.weather_list_item, null);
-                message = (TextView)result.findViewById(R.id.itemTView);
+                message = (TextView) result.findViewById(R.id.itemTView);
                 message.setText(getItem(position));
+            }else if(val.equals("Robot Vacuum")) {
+                    result = inflater.inflate(R.layout.vacuum_list_item, null);
+                    message = (TextView) result.findViewById(R.id.itemTView);
+                    message.setText(getItem(position));
+            }else if(val.equals("Sound System")){
+                    result = inflater.inflate(R.layout.sound_list_item, null);
+                    message = (TextView) result.findViewById(R.id.itemTView);
+                    message.setText(getItem(position));
             }else{
                 result = inflater.inflate(R.layout.home_list_item, null);
                 message = (TextView)result.findViewById(R.id.itemTView);

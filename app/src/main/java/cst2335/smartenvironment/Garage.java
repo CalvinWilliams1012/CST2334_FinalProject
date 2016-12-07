@@ -72,6 +72,7 @@ public class Garage extends AppCompatActivity {
                     }
                 });
                 about.show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);

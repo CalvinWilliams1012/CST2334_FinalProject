@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cst2335.smartenvironment">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -35,19 +37,19 @@
             android:label="@string/title_activity_kitchen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="cst2335.smartenviroment.ItemListActivity"
-            android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Garage"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="cst2335.smartenviroment.ItemDetailActivity"
-            android:label="@string/title_item_detail"
-            android:parentActivityName="cst2335.smartenviroment.ItemListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cst2335.smartenviroment.ItemListActivity" />
-        </activity>
-        <activity android:name=".Garage"></activity>
+            android:name=".Temperature"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Weather"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Remove_Items"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Add_Items"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

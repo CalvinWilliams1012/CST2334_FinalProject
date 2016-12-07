@@ -10,8 +10,8 @@ import android.util.Log;
  */
 
 public class HomeDatabaseHelper extends SQLiteOpenHelper{
-    public static final String DATABASE_NAME = "HomeDB";
-    private static final int VERSION_NUM = 1;
+    public static final String DATABASE_NAME = "Home";
+    private static final int VERSION_NUM = 4;
     public static final String NAME = "Name";
     public static final String ENABLED = "Enabled";
 
@@ -27,6 +27,7 @@ public class HomeDatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DELETE FROM " + DATABASE_NAME + ";");
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
         onCreate(db);
         Log.i("HomeDatabaseHelper","Calling onUpgrade, oldVersion = " + oldVersion + " newVersion = " + newVersion);

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+    <string name="action_settings">Paramètres</string>
+    <string name="title_activity_car">Voiture</string>
+    <string name="title_activity_home">Accueil</string>
+    <string name="title_activity_living_room">Salon</string>
+    <string name="title_activity_kitchen">Cuisine</string>
+    <string name="ok">OKAY</string>
+    <string name="Current">Vous êtes actuellement dans le
+ %1$s Activité</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="degrees">Degré Celsius</string>
+
+</resources>
