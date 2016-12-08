@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,11 @@ public class Remove_Items extends AppCompatActivity {
         setContentView(R.layout.activity_remove__items);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        load();
 
+    }
+
+    public void load(){
         mainList = (ListView) findViewById(R.id.removeListView);
         values = new ArrayList<>();
 
@@ -227,8 +232,13 @@ public class Remove_Items extends AppCompatActivity {
         });
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-
+                Context context = getApplicationContext();
+                CharSequence text = name + " Removed";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context,text,duration);
+                toast.show();;
                 db.execSQL("UPDATE " + helper.DATABASE_NAME + " SET " + helper.ENABLED + "=0 WHERE " + helper.NAME + "='" + name + "';");
+                load();
             }
         });
         builder.show();

@@ -2,22 +2,113 @@ package cst2335.smartenvironment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Temperature extends AppCompatActivity {
 
     private final static String ACTIVITY_NAME = "Temperature";
+    TemperatureDatabaseHelper helper;
+    SQLiteDatabase db;
+    ImageButton upButton;
+    ImageButton downButton;
+    Button editButton;
+    EditText tempText;
+    int temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        tempText = (EditText) findViewById(R.id.tempText);
+        upButton = (ImageButton) findViewById(R.id.upButton);
+        upButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                setTemperature(getTemperature()+1);
+                textColour();
+            }
+        });
+        downButton = (ImageButton) findViewById(R.id.downButton);
+        downButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                setTemperature(getTemperature()-1);
+                textColour();
+            }
+        });
+        editButton = (Button) findViewById(R.id.editButton);
+        editButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                setTemperature(Integer.parseInt(tempText.getText().toString()));
+                textColour();
+            }
+        });
+
+        load();
     }
 
+    public void load() {
+        helper = new TemperatureDatabaseHelper(this);
+        db = helper.getWritableDatabase();
+
+        Cursor qry = db.rawQuery("SELECT * FROM " + helper.DATABASE_NAME,new String[]{});
+        int tempPlacement = qry.getColumnIndex(helper.CURRENTTEMP);
+
+        if(qry.getCount()==0){
+            db.execSQL("INSERT INTO " + helper.DATABASE_NAME + "(" + helper.CURRENTTEMP + ", " + helper.ID + ") VALUES(20,1);");
+        }
+
+        if(tempPlacement >= 0 && !qry.isClosed() && qry.getCount()!=0){
+            try {
+                while (qry.moveToNext()) {
+                    setTemperature(qry.getInt(tempPlacement));
+                }
+            }finally {
+                qry.close();
+            }
+        }
+
+        textColour();
+    }
+
+    public void textColour(){
+        if(temperature>24){
+            tempText.setBackgroundColor(Color.rgb(255,0,0));
+        }else if(temperature<19){
+            tempText.setBackgroundColor(Color.rgb(0,0,255));
+        }
+    }
+
+    private void setTemperature(int val){
+        temperature = val;
+        tempText.setText(temperature+"");
+    }
+
+    private int getTemperature(){
+        return temperature;
+    }
+
+
+    @Override
+    protected void onPause() {
+        db.execSQL("UPDATE " + helper.DATABASE_NAME + " SET " + helper.CURRENTTEMP + "=" + temperature + " WHERE " + helper.ID + "=1;");
+        super.onPause();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,7 +153,7 @@ public class Temperature extends AppCompatActivity {
                 Log.i(ACTIVITY_NAME," Help Selected");
                 android.support.v7.app.AlertDialog.Builder about = new android.support.v7.app.AlertDialog.Builder(Temperature.this);
                 about.setTitle("About");
-                about.setMessage("Version 1.0, by Calvin Williams \n\nSelect items from the list to open controls for that item.");
+                about.setMessage("Version 1.0, by Calvin Williams \n\nUse up/down buttons or type the desired temperature.");
 
                 about.setPositiveButton(R.string.ok,new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int id){

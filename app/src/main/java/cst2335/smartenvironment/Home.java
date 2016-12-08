@@ -53,6 +53,14 @@ public class Home extends AppCompatActivity {
 
         Cursor qry = db.rawQuery("SELECT * FROM " + helper.DATABASE_NAME,new String[]{});
 
+        if(qry.getCount()==0){
+            db.execSQL("INSERT INTO "+ helper.DATABASE_NAME + "(" + helper.ENABLED + ", " + helper.NAME + ") VALUES('1','Garage')");
+            db.execSQL("INSERT INTO "+ helper.DATABASE_NAME + "(" + helper.ENABLED + ", " + helper.NAME + ") VALUES('1','Temperature')");
+            db.execSQL("INSERT INTO "+ helper.DATABASE_NAME + "(" + helper.ENABLED + ", " + helper.NAME + ") VALUES('1','Weather')");
+            db.execSQL("INSERT INTO "+ helper.DATABASE_NAME + "(" + helper.ENABLED + ", " + helper.NAME + ") VALUES('0','Robot Vacuum')");
+            db.execSQL("INSERT INTO "+ helper.DATABASE_NAME + "(" + helper.ENABLED + ", " + helper.NAME + ") VALUES('0','Sound System')");
+        }
+
         int dbName = qry.getColumnIndex(helper.NAME);
         int dbEnabled = qry.getColumnIndex(helper.ENABLED);
         Log.i(ACTIVITY_NAME,"Col count: " + qry.getColumnCount());

@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,10 @@ public class Add_Items extends AppCompatActivity {
         setContentView(R.layout.activity_add__items);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        load();
+    }
+
+    public void load(){
 
         mainList = (ListView) findViewById(R.id.addListView);
         values = new ArrayList<>();
@@ -76,7 +81,6 @@ public class Add_Items extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -219,8 +223,13 @@ public class Add_Items extends AppCompatActivity {
         });
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-
+                Context context = getApplicationContext();
+                CharSequence text = name + " Added";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context,text,duration);
+                toast.show();;
                 db.execSQL("UPDATE " + helper.DATABASE_NAME + " SET " + helper.ENABLED + "=1 WHERE " + helper.NAME + "='" + name + "';");
+                load();
             }
         });
         builder.show();
