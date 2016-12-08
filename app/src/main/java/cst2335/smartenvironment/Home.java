@@ -42,6 +42,31 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        load();
+
+
+        mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(values.get(0).equals("Garage") && position==0){
+                    Log.d(ACTIVITY_NAME,"Garage clicked");
+                    Intent intent = new Intent(Home.this,Garage.class);
+                    startActivity(intent);
+                }else if(values.get(1).equals("Temperature")&& position==1){
+                    Log.d(ACTIVITY_NAME,"Temp clicked");
+                    Intent intent = new Intent(Home.this,Temperature.class);
+                    startActivity(intent);
+                }else if(values.get(2).equals("Weather") && position==2){
+                    Log.d(ACTIVITY_NAME,"Weather clicked");
+                    Intent intent = new Intent(Home.this,Weather.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+    }
+
+    public void load(){
 
         mainList = (ListView) findViewById(R.id.homeListView);
         values = new ArrayList<>();
@@ -76,30 +101,8 @@ public class Home extends AppCompatActivity {
             }
         }
 
-
         mainList.setAdapter(myAdapter);
-
-        mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(values.get(0).equals("Garage") && position==0){
-                    Log.d(ACTIVITY_NAME,"Garage clicked");
-                    Intent intent = new Intent(Home.this,Garage.class);
-                    startActivity(intent);
-                }else if(values.get(1).equals("Temperature")&& position==1){
-                    Log.d(ACTIVITY_NAME,"Temp clicked");
-                    Intent intent = new Intent(Home.this,Temperature.class);
-                    startActivity(intent);
-                }else if(values.get(2).equals("Weather") && position==2){
-                    Log.d(ACTIVITY_NAME,"Weather clicked");
-                    Intent intent = new Intent(Home.this,Weather.class);
-                    startActivity(intent);
-                }
-            }
-        });
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

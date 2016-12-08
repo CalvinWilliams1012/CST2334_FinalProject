@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -55,6 +56,8 @@ public class Temperature extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setTemperature(Integer.parseInt(tempText.getText().toString()));
+                Snackbar.make(v, "Temperature set to " + getTemperature(), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 textColour();
             }
         });

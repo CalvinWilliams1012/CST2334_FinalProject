@@ -12,24 +12,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_2ecd9f0b6892f9549e38a12a7dc666b860855eda\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_16c0af1f0a2fe7c4047b5ec20ff2b8d70a7f05e1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -48,30 +30,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_3b69ae41429f99461717268635e4f4840190b596\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
         <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e3f85d496b5c48e41ca8ef3a0443b37ff68cd658\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_137503455a8f35892507aedef17d38f630e4c585\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -97,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="cbe6833eaf0d921bb59129303ac21cf4146b27bb">
+        sha1="dcf4c78e2e5c02b5364c87236b1dfba2a8cd2648">
         <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_438e921dced02ade055c31f2f6a2196e827e92e4\classes.dex" />
     </item>
     <item
@@ -108,6 +72,78 @@
         revision="24.0.2"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
         <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_530cdfeecd50e681e389a607d5b250b2224792fd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d058dd35b7f9dc36d5b812f239d8e8f5fcdd298f">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_127bbd429de82a27c281341784497d5929969c51\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a283ec089d4125ab5df12e0c3bcfecd1d5b45a25\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_214d07892cdc6d7d8c206a9519c4a9ee0cef3230\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_a8c2d1665fcd1cb59bf29198d3a1d47994210a72\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_2ecd9f0b6892f9549e38a12a7dc666b860855eda\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_16c0af1f0a2fe7c4047b5ec20ff2b8d70a7f05e1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_3b69ae41429f99461717268635e4f4840190b596\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_137503455a8f35892507aedef17d38f630e4c585\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -129,48 +165,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="20ed5f801a4be631b01bdd207fcc58907cdb6b8c">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_127bbd429de82a27c281341784497d5929969c51\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a283ec089d4125ab5df12e0c3bcfecd1d5b45a25\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_279e565df7f16914e38fc70a1751d897db4a7146\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_214d07892cdc6d7d8c206a9519c4a9ee0cef3230\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Calvin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\Calvin\AndroidStudioProjects\SmartEnvironment\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_a8c2d1665fcd1cb59bf29198d3a1d47994210a72\classes.dex" />
     </item>
 
 </items>
